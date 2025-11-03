@@ -3,7 +3,7 @@
 ## npm install firebase -> used to install firebase on react project
 
 ## we need to import firebase from 'firebase/compat/app'
-## we must be import the module 'firebase/compat/auth' for use Authentication in project
+## we must be import the namespace 'firebase/compat/auth' for use Authentication in project
 
 ## initializeApp() method of firebase is used to Initialize the react app as firebase project. pass firebaseConfig obj as param of initializeApp(). We need to do it outside of component
 
