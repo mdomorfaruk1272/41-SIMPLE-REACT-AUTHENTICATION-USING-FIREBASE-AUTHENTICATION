@@ -1,16 +1,16 @@
-# React + Vite
+# 41-5 Install firebase, initialize firebase app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## npm install firebase -> used to install firebase on react project
 
-Currently, two official plugins are available:
+## we need to import firebase from 'firebase/compat/app'
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## initializeApp() method of firebase is used to Initialize the react app as firebase project. pass firebaseConfig obj as param of initializeApp(). We need to do it outside of component
 
-## React Compiler
+## If we use google sign in we need to call GoogleAuthProvider() of app module of firebase module. it's return a provider
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### npm install firebase
+### import firebase from 'firebase/compat/app';
+### firebase.initializeApp(firebaseConfig)
+### function App(){
+###    const provider = firebase.auth.GoogleAuthProvider();
+### }
