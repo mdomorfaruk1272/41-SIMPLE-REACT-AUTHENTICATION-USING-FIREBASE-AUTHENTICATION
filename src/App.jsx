@@ -7,13 +7,16 @@ firebase.initializeApp(firebaseConfig);
 
 function App() {
   const provider = new firebase.auth.GoogleAuthProvider();
-  const handleClick = () => {
-    firebase.auth()
-  .signInWithPopup(provider)
+  const handleSignIn = () => {
+    firebase.auth().signInWithPopup(provider)
+    .then(res => {
+      const {displayName, photoURL, email} = res.user;
+      console.log(displayName," \n", photoURL, "\n", email);
+    })
   }
   return (
     <div>
-      <button onClick={handleClick}>Sign In</button>
+      <button onClick={handleSignIn}>Sign In</button>
     </div>
   )
 }

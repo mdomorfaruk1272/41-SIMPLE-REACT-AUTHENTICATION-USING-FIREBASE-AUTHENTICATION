@@ -1,19 +1,19 @@
-# 41-5 Install firebase, initialize firebase app
+# 41-6 Sign in with google, open google login popup
 
-## npm install firebase -> used to install firebase on react project
+## firebase.auth().signInWithPopup(provider) -> is used to sign in user with with popup. The parameter is AuthProvider like GoogleAuthProvider(). This function return a promise. In this promise we will get the user login information as object. 
 
-## we need to import firebase from 'firebase/compat/app'
-## we must be import the module 'firebase/compat/auth' for use Authentication in project
-
-## initializeApp() method of firebase is used to Initialize the react app as firebase project. pass firebaseConfig obj as param of initializeApp(). We need to do it outside of component
-
-## If we use google sign in we need to call GoogleAuthProvider() of app module of firebase module. it's return a provider
-
-### npm install firebase
-
-### import firebase from 'firebase/compat/app';
-### import 'firebase/compat/auth';
-### firebase.initializeApp(firebaseConfig);
-### function App(){
-###    const provider = firebase.auth.GoogleAuthProvider();
+### function App() {
+###   const provider = new firebase.auth.GoogleAuthProvider();
+###   const handleSignIn = () => {
+###     firebase.auth().signInWithPopup(provider)
+###     .then(res => {
+###       const {displayName, photoURL, email} = res.user;
+###       console.log(displayName," \n", photoURL, "\n", email);
+###     })
+###   }
+###   return (
+###     <div>
+###       <button onClick={handleSignIn}>Sign In</button>
+###     </div>
+###   )
 ### }
